@@ -13,11 +13,7 @@ class Solution {
                 list.remove(list.size()-1);
             }
         }
-        StringBuilder sb=new StringBuilder();
-        for(char ck:carr){
-            sb.append(ck);
-        }
-        return sb.toString();
+        return new String(carr);
     }
     public static boolean isvow(char ch){
         if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
