@@ -1,17 +1,18 @@
 class Solution {
     public String sortVowels(String s) {
-        List<Character> list=new ArrayList<>();
+        String str="";
         for(int i=0;i<s.length();i++){
             if(isvow(s.charAt(i))){
-                list.add(s.charAt(i));
+                str+=s.charAt(i)+"";
             }
         }
-        Collections.sort(list);
+        char[]vow=str.toCharArray();
+        Arrays.sort(vow);
+        int index=0;
         char[] carr=s.toCharArray();
         for(int i=0;i<carr.length;i++){
             if(isvow(s.charAt(i))){
-                carr[i]=list.get(0);
-                list.remove(0);
+                carr[i]=vow[index++];
             }
         }
         return  new String(carr);
