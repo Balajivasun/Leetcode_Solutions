@@ -1,22 +1,25 @@
 class Solution {
     public String reverseVowels(String s) {
-        String str="";
+        List<Character> list=new ArrayList<>();
         for(int i=0;i<s.length();i++){
-            if(isVow(s.charAt(i))){
-                str+=s.charAt(i)+"";
+            if(isvow(s.charAt(i))){
+                list.add(s.charAt(i));
             }
         }
-        int last=str.length()-1;
-        char[] chars = s.toCharArray();
-        for(int i=0;i<chars.length;i++){
-            if(isVow(s.charAt(i))){
-                chars[i] = str.charAt(last);
-                last--;
+        char[] carr=s.toCharArray();
+        for(int i=0;i<carr.length;i++){
+            if(isvow(carr[i])){
+                carr[i]=list.get(list.size()-1);
+                list.remove(list.size()-1);
             }
         }
-        return new String(chars);
+        StringBuilder sb=new StringBuilder();
+        for(char ck:carr){
+            sb.append(ck);
+        }
+        return sb.toString();
     }
-    public static boolean isVow(char ch){
+    public static boolean isvow(char ch){
         if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
             return true;
         }
